@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Lista Compras</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+<div class='container'>
+  <div id="lista-compras">
+    <div class='header mb-1'>
+      <h1>{{ header ? header.toLocaleUpperCase() : 'No header' }}</h1>
+      <button v-if="estado === 'default'" @click="cambiarEstado('edit')" class="btn btn-warning">Agregar</button>
+      <button v-else @click="cambiarEstado('default')" class="btn btn-danger">Cancelar</button>
+    </div>
+    <div v-if="estado === 'edit'">
+      <input type="text" placeholder="Elemento" v-model="newUtil" maxlength="50">
+      <button class="btn btn-primary" :disabled="newUtil.length === 0" @click="addUtil()">Guardar</button>
+      <p>{{cantidadCharac}}/50</p>
+    </div>
+    <div>
+      <ul v-if="utiles.length > 0">
+        <li v-for="(item,index) in utiles" :class="{tachado : item.comprado}" @click='cambiarEstadoCompra(item)' style="cursor: pointer;">
+          {{item.util}}
+          <span class="noTachado" @click='removeElement(index)'>&times;</span>
+        </li>
+      </ul>
+      <p v-else>Lista vacia</p>
+    </div>
+  </div>
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script>
+    let app = new Vue({
+       el: '#lista-compras',
+       data:{
+         header: 'Bienvenido',
+         estado: 'default',
+         newUtil: '',
+         utiles:[
+           {
+             util:'5 cuadernos',
+             comprado: true
+           },
+           {
+             util:'3 lapices',
+             comprado: true
+           },
+           {
+             util:'1 borrador',
+             comprado: false
+           },
+       ]
+       },
+       computed:{
+         cantidadCharac:function() {
+           return this.newUtil.length;
+         },
+         utilesReversa(){
+           return this.utiles.slice(0).reverse();
+         },
+       },
+       methods:{
+         addUtil(){
+           if(this.newUtil !== ''){
+            this.utiles.push({
+              util: this.newUtil,
+              comprado: false
+            });
+            this.resetUtil();
+          }
+        },
+        cambiarEstado(newEstado){
+          this.estado = newEstado;
+          this.resetUtil();
+        },
+        cambiarEstadoCompra(util){
+          util.comprado = !util.comprado;
+        },
+        removeElement: function (index) {
+          this.utiles.splice(index, 1);
+        },
+        resetUtil(){
+          this.newUtil = '';
+        }
+       }
+    });
+</script>
+</html>

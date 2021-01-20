@@ -1,0 +1,16 @@
+{
+  "name": "ricardows/archive",
+  "description": "",
+  "homepage": "https://github.com/RICARDOWS/archive",
+  "type": "library",
+  "license": "Apache 2.0",
+  "require": {
+    "php": "^7.2"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.0"
+  },
+  "autoload": {
+    "psr-4": {"archive\\": "src/"}
+  }
+}

@@ -1,0 +1,9 @@
+.tachado{
+  text-decoration: line-through;
+  color: red;
+}
+
+.noTachado{
+  text-decoration: none !important;
+  color: black !important;
+}

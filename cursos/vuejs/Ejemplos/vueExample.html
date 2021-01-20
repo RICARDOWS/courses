@@ -1,0 +1,43 @@
+<div id='app'>
+    <h3 v-once>{{ titulo }}</h3>
+    <p>{{ mostrarTitulo() }} </p>
+    <p v-html='enlaceHTML'></p>
+    <input type='text' v-model='inicialContador' @keyup.enter='reset'>
+    <button @click='sumar(2)'>Sumar +2</button>
+    <p>{{contador}}</p>
+    <p @mousemove='actualizarValores'>
+        Valor de x: {{x}}<br/>
+        Valor de y: {{y}}<br/>
+    </p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data:{
+            titulo: 'Hola desde html',
+            enlaceHTML:'<a href="#">Enlace</a>',
+            contador: 1,
+            inicialContador: 1,
+            x: 0,
+            y: 0,
+        },
+        methods:{
+            mostrarTitulo:function(){
+                this.titulo = 'Hola desde methods';
+                return this.titulo;
+            },
+            sumar:function(valor){
+                this.contador += valor;
+            },
+            reset: function(){
+                this.contador = this.inicialContador;
+            },
+            actualizarValores: function(event){
+                this.x = event.clientX;
+                this.y = event.clientY;
+            }
+        }
+    });
+
+</script>
