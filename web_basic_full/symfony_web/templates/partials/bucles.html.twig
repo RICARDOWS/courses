@@ -1,0 +1,19 @@
+<hr>
+<h3>Bucles</h3>
+{% if animales|length >= 0 %}
+    <ul>
+        {% for animal in animales %}
+            <li>
+                {{ animal }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+{% for i in 1..animales|length %}
+    {{ i }}<br>
+{% endfor %}
+
+{% if aves.color starts with 'n' %}
+    <h1> El color de aves empieza por n</h1>
+{% endif %}

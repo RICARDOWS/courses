@@ -1,8 +1,40 @@
-{% extends 'base.html.twig' %}
+{% extends 'layouts/master.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}
+    Extends Master
+{% endblock %}
 
-{% block body %}
-<h1>{{ title }}</h1>
-<h2>El nombre es: {{ nombre }}</h2>
+{% block cabecera %}
+    {{ parent() }}
+    <h1>Animales</h1>
+{% endblock %}
+
+{% block contenido %}
+    {# Comentario #}
+    {% block body %}
+        <h1>{{ title }}</h1>
+        <h2>El nombre es: {{ nombre }}</h2>
+    {% endblock %}
+
+    {# Crear variable#}
+    <hr>
+    <h3> Crear variable</h3>
+    {% set perro = 'Pastor aleman' %}
+    <h3>{{ perro }}</h3>
+
+    {# Arreglos #}
+    {{ include('partials/arreglos.html.twig') }}
+
+    {# condicinal #}
+    {{ include('partials/condicionales.html.twig') }}
+
+    {# bucle #}
+    {{ include('partials/bucles.html.twig') }}
+
+    {# funciones predefinidas #}
+    {{ include('partials/funciones.html.twig') }}
+
+    {# filtros #}
+    {{ include('partials/filtros.html.twig') }}
+
 {% endblock %}

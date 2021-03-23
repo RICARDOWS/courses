@@ -15,22 +15,27 @@ class HomeController extends AbstractController
     {
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
-            'variable' => 'Hola mundo',
+            'variable' => 'Varible desde el controlador',
         ]);
     }
 
     public function animales($nombre): Response
     {
+        $animales = ['perro', 'gato', 'rata', 'paloma'];
+        $aves = ['nombre' => 'perico', 'edad' => '12', 'color' => 'negro'];
+
         return $this->render('home/animales.html.twig', [
             'title' => 'Bienvenido a Animales Page',
-            'nombre' => $nombre
+            'nombre' => $nombre,
+            'animales' => $animales,
+            'aves' => $aves
         ]);
     }
 
     public function redirigir(): Response
     {
         return $this->redirect('https://www.google.com');
-        return $this->redirectToRoute('animales',[
+        return $this->redirectToRoute('animales', [
             'nombre' => 'Juan'
         ]);
     }

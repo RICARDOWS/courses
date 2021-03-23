@@ -1,0 +1,9 @@
+<hr>
+<h3> Filtros </h3>
+{{ animales|length }} <br>
+{% set email = '             example@email.com          ' %}
+{{ dump(email|trim|upper) }}
+
+<h3>Extensiones personalizadas</h3>
+{{ fn_multiplicar(2)|raw }}
+{{ 10|fl_multiplicar|raw }}
