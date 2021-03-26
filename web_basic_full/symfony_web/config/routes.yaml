@@ -11,3 +11,12 @@ animales:
 redirigir:
     path: /redirigir
     controller: App\Controller\HomeController::redirigir
+animal_index:
+    path: /animal/index
+    controller: App\Controller\AnimalController::index
+animal_store:
+    path: /animal/store
+    controller: App\Controller\AnimalController::store
+animal_detail:
+    path: /animal/{id}
+    controller: App\Controller\AnimalController::detail
