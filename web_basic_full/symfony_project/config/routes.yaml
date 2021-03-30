@@ -1,3 +1,9 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+task_view:
+    path: /
+    controller: App\Controller\TaskController::index
+users_view:
+    path: /users
+    controller: App\Controller\UserController::index
+users_register:
+    path: /users/register
+    controller: App\Controller\UserController::register

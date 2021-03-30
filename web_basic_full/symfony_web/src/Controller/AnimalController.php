@@ -18,7 +18,7 @@ class AnimalController extends AbstractController
 
         $animales = $entityRepo->findAll();
 
-        return $this->render('animal/index.html.twig', [
+        return $this->render('animal/register.html.twig', [
             'controller_name' => 'AnimalController',
             'animales' => $animales
         ]);
