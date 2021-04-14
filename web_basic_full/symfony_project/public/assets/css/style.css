@@ -28,7 +28,7 @@ label{
 
 input[type="text"],
 input[type="password"],
-input[type="email"]{
+input[type="email"],textarea,select{
     width: 70%;
     padding: 8px;
     font-size: 14px;
@@ -84,4 +84,48 @@ button,input[type="submit"]{
 button:hover,
 input[type="submit"]:hover{
     background: greenyellow;
+}
+
+#menu li.divright{
+    float: right !important;
+    border-right: 0;
+    border-left: 1px solid black;;
+}
+
+table{
+    width: 100%;
+}
+
+table th,table td{
+    background: #eeeeee;
+    padding: 15px 25px;
+    border-bottom: 1px solid #eeeeee;
+    text-align: center;
+}
+
+table td{
+    background: #b4ffbc;
+}
+
+.buttons a{
+    text-decoration: none;
+    border: 1px solid #444444;
+    padding: 10px;
+    color: white;
+}
+
+.buttons .btn_ver{
+    background: forestgreen;
+}
+
+.buttons .btn_editar{
+    background: orange;
+}
+
+.buttons .btn_eliminar{
+    background: orangered;
+}
+
+.data-task{
+    color:gray;
 }

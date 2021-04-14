@@ -19,10 +19,16 @@
         <div id="header">
             <h2>Tareas Symfony</h2>
             <ul id="menu">
-                <li><a href="{{ path('task_view') }}">Inicio</a></li>
-                <li><a href="">Tareas</a></li>
-                <li><a href="{{ path('task_view') }}">Login</a></li>
-                <li><a href="{{ path('users_register') }}">Registro</a></li>
+                {% if app.user %}
+                    <li><a href="{{ path('task_view') }}">Inicio</a></li>
+                    <li><a href="{{ path('task_view') }}">Tareas</a></li>
+                    <li><a href="{{ path('task_create') }}">Crear Tarea</a></li>
+                    <li class="divright"><a href="{{ path('logout') }}">Cerrar sesión</a></li>
+                    <li class="divright"><a href="">{{ app.user.name ~ ' ' ~ app.user.surname }}</a></li>
+                {% else %}
+                    <li><a href="{{ path('login') }}">Login</a></li>
+                    <li><a href="{{ path('users_register') }}">Registro</a></li>
+                {% endif %}
             </ul>
         </div>
         <div class="clearfix"></div>

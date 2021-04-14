@@ -1,9 +1,20 @@
 task_view:
-    path: /
+    path: /tasks
     controller: App\Controller\TaskController::index
+task_create:
+    path: /task/create
+    controller: App\Controller\TaskController::create
+task_detail:
+    path: /task/{id}
+    controller: App\Controller\TaskController::detail
 users_view:
     path: /users
     controller: App\Controller\UserController::index
 users_register:
     path: /users/register
     controller: App\Controller\UserController::register
+login:
+    path: /login
+    controller: App\Controller\UserController::login
+logout:
+    path: /logout

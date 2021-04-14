@@ -9,6 +9,7 @@ use App\Entity\UserEntity;
 use App\Form\RegisterType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class UserController extends AbstractController
 {
@@ -44,5 +45,15 @@ class UserController extends AbstractController
             'controller_name' => 'UserController',
             'form' => $form->createView(),
         ]);
+    }
+
+    public function login(AuthenticationUtils $auth){
+        $error = $auth->getLastAuthenticationError();
+
+        $lastUsername = $auth->getLastUsername();
+
+        return $this->render('user/login.html.twig',[
+            'error' => $error,
+            'lastUsername' => $lastUsername]);
     }
 }
