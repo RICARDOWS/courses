@@ -6,34 +6,39 @@
 <div class="example-wrapper">
     <h2>Tareas</h2>
 
-    <table>
-        <tr>
-            <th>Tarea</th>
-            <th>Prioridad</th>
-            <th>Horas</th>
-            <th>Acciones</th>
-        </tr>
-
-        {% for task in tasks %}
+    {% if tasks|length > 0 %}
+        <table>
             <tr>
-                <td>{{ task.title }}</td>
-                <td>
-                    {% if task.priority == 'HIGH' %}
-                        {{ 'Alta' }}
-                    {% elseif task.priority == 'MEDIUM' %}
-                        {{ 'Media' }}
-                    {% elseif task.priority == 'LOW' %}
-                        {{ 'Baja' }}
-                    {% endif %}
-                </td>
-                <td>{{ task.hours }}</td>
-                <td class="buttons">
-                    <a href="{{ path('task_detail',{'id':task.id}) }}" class="btn_ver">Ver</a>
-                    <a href="" class="btn_editar">Editar</a>
-                    <a href="" class="btn_eliminar">Eliminar</a>
-                </td>
+                <th>Tarea</th>
+                <th>Prioridad</th>
+                <th>Horas</th>
+                <th>Acciones</th>
             </tr>
-        {% endfor %}
-    </table>
+
+            {% for task in tasks %}
+                <tr>
+                    <td>{{ task.title }}</td>
+                    <td>
+                        {% if task.priority == 'HIGH' %}
+                            {{ 'Alta' }}
+                        {% elseif task.priority == 'MEDIUM' %}
+                            {{ 'Media' }}
+                        {% elseif task.priority == 'LOW' %}
+                            {{ 'Baja' }}
+                        {% endif %}
+                    </td>
+                    <td>{{ task.hours }}</td>
+                    <td class="buttons">
+                        <a href="{{ path('task_detail',{'id':task.id}) }}" class="btn_ver">Ver</a>
+                        <a href="" class="btn_editar">Editar</a>
+                        <a href="" class="btn_eliminar">Eliminar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <strong>No hay tareas disponibles</strong>
+    {% endif %}
+
 </div>
 {% endblock %}

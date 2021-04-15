@@ -107,11 +107,13 @@ table td{
     background: #b4ffbc;
 }
 
+
 .buttons a{
     text-decoration: none;
     border: 1px solid #444444;
     padding: 10px;
     color: white;
+    width: 33%;
 }
 
 .buttons .btn_ver{

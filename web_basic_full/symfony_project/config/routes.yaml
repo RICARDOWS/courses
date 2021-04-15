@@ -4,6 +4,9 @@ task_view:
 task_create:
     path: /task/create
     controller: App\Controller\TaskController::create
+task_user:
+    path: /task/mis-tareas
+    controller: App\Controller\TaskController::myTasks
 task_detail:
     path: /task/{id}
     controller: App\Controller\TaskController::detail
