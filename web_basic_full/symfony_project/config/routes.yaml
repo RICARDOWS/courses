@@ -7,6 +7,12 @@ task_create:
 task_user:
     path: /task/mis-tareas
     controller: App\Controller\TaskController::myTasks
+task_edit:
+    path: /task/edit/{id}
+    controller: App\Controller\TaskController::edit
+task_delete:
+    path: /task/delete/{id}
+    controller: App\Controller\TaskController::delete
 task_detail:
     path: /task/{id}
     controller: App\Controller\TaskController::detail
