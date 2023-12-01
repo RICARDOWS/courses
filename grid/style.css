@@ -1,0 +1,79 @@
+.flex-container{
+    display: flex;
+    flex-flow: row wrap;
+    border: 4px solid #000;
+    box-sizing: border-box;
+    width: 200px;
+    height: 200px;
+    justify-content: center; /* eje principal */
+    align-items: center;
+    align-content: center;
+    gap: 15px;
+}
+
+.flex-container .item{
+    border: 1px solid;
+    box-sizing: border-box;
+    opacity: .9;
+    width: 50px;
+    height: 50px;
+
+    /* flex: 1;  */
+    /* shortcut for grow,shrink, basis en 1*/
+    /* valores por defecto */
+    /* 
+    flex-grow: 0; Los elementos NO crecen 
+    flex-shrink: 1; Los elementos pueden reducir su tamaño mas pequeño que su flex-basis 
+    flex-basis: auto; Los elementos tienen un tamaño base en auto
+    */
+}
+
+.flex-container .item:first-child{
+    background: yellow;
+    height: 25px;
+}
+
+.flex-container .item:nth-child(2),
+.flex-container .item:nth-child(5){
+    background: #09f;
+    height: 35px;
+    align-self: flex-start;
+}
+
+.flex-container .item:last-child{
+    background: red;
+}
+
+/* grid */
+.grid-container{
+    background: lightsalmon;
+    border: 2px solid black;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: repeat( 3, minmax(50px, 50px));
+    grid-auto-rows: 50px;
+    gap: 8px;
+    max-width: 800px;
+    height: 400px;
+    place-content: center;
+}
+
+.grid-container div{
+    background: lightblue;
+    border: 2px solid #09f;
+    border-radius: 6px;
+}
+
+/* .grid-container div:first-child{
+    background: lightgreen;
+    border: 2px solid green;
+    grid-column-start: span 1; 
+    grid-row-start: span 2;
+} */
+
+/* .grid-container div:nth-child(2){
+    background: lightseagreen;
+    border: 2px solid blue;
+    grid-column: 2 / -1;
+    grid-row: 2 / 3;
+} */
