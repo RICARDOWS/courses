@@ -1,7 +1,7 @@
 const http = require('node:http') // protocolo HTTP
 const { findAvailablePort } = require('./10.free-port.js')
 
-console.log(process.env)
+// console.log(process.env)
 
 const desiredPort = process.env.PORT ?? 3000
 
