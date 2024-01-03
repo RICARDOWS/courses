@@ -7,9 +7,9 @@ const processRequest = (req, res) => {
   res.setHeader('Content-Type', 'text/html; charset=utf-8')
 
   if (req.url === '/') {
-    res.end('<h1>Mi página</h1>')
-  } else if (req.url === '/imagen-super-bonita.png') {
-    fs.readFile('./placa.png', (err, data) => {
+    res.end('<h1>Mi página bonita</h1>')
+  } else if (req.url === '/imagen') {
+    fs.readFile('./imagen.png', (err, data) => {
       if (err) {
         res.statusCode = 500
         res.end('<h1>500 Internal Server Error</h1>')
