@@ -22,11 +22,11 @@ const movieSchema = z.object({
 })
 
 function validateMovie (input) {
-  return movieSchema.safeParse(input)
+  return movieSchema.safeParse(input) //safeParse devuelve error o datos
 }
 
 function validatePartialMovie (input) {
-  return movieSchema.partial().safeParse(input)
+  return movieSchema.partial().safeParse(input) // partial -> todas las propiedades se vuelven opcionales
 }
 
 module.exports = {

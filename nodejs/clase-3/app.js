@@ -7,13 +7,14 @@ const { validateMovie, validatePartialMovie } = require('./schemas/movies')
 
 const app = express()
 app.use(express.json())
+
+//Uso de middleware para cors
 app.use(cors({
   origin: (origin, callback) => {
     const ACCEPTED_ORIGINS = [
       'http://localhost:8080',
       'http://localhost:1234',
       'https://movies.com',
-      'https://midu.dev'
     ]
 
     if (ACCEPTED_ORIGINS.includes(origin)) {
@@ -32,8 +33,8 @@ app.disable('x-powered-by') // deshabilitar el header X-Powered-By: Express
 // métodos normales: GET/HEAD/POST
 // métodos complejos: PUT/PATCH/DELETE
 
-// CORS PRE-Flight
-// OPTIONS
+// CORS PRE-Flight para metodos complejos
+// se tiene que configurar OPTIONS para PRE-FLIGHT
 
 // Todos los recursos que sean MOVIES se identifica con /movies
 app.get('/movies', (req, res) => {

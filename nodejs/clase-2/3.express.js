@@ -5,10 +5,11 @@ const path = require('path')
 const PORT = process.env.PORT ?? 1234
 
 const app = express()
-app.disable('x-powered-by')
+app.disable('x-powered-by') //deshabilitar cabezara de express 
 
 app.use(express.json())
 
+//middleware in express
 // app.use((req, res, next) => {
 //   if (req.method !== 'POST') return next()
 //   if (req.headers['content-type'] !== 'application/json') return next()
